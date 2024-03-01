@@ -1,0 +1,21 @@
+version: '3'
+services:
+  keycloak:
+    image: nafiislam964/oncampus:0.0.4.RELEASE
+    container_name: keycloak
+    restart: always
+    ports:
+      - 4001:8080
+      - 4000:8443
+
+    volumes:
+      - ./certs/apache.crt:/etc/x509/https/tls.crt
+      - ./certs/apache.key:/etc/x509/https/tls.key
+
+    environment:
+      - KEYCLOAK_ADMIN=oncampusbuet@gmail.com
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+      - KC_HTTPS_CERTIFICATE_FILE=/etc/x509/https/tls.crt
+      - KC_HTTPS_CERTIFICATE_KEY_FILE=/etc/x509/https/tls.key
+    command:
+      - start-dev
