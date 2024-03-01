@@ -16,7 +16,6 @@ sudo apt-get update
 sudo apt-get update
 sudo apt-get install docker-compose-plugin
 
-
 2.
 sudo chmod 655 ./certs/*
 
